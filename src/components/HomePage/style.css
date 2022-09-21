@@ -1,0 +1,79 @@
+body {
+  background-color: var(--color-Grey-4);
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+}
+.App {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100vh;
+  gap: 15px;
+}
+.main__container {
+  width: 80%;
+  min-width: 250px;
+  max-width: 347px;
+  gap: 28px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10.5px;
+}
+.main__container > h2 {
+  font-size: 2.375rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+  line-height: 48px;
+  color: var(--color-Greay-1);
+}
+.main__container > p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--color-Greay-1);
+}
+.main__container > button {
+  width: 241px;
+  height: 48px;
+  background-color: var(--color-primary);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--color-Greay-1);
+  transition: 0.5s;
+}
+.main__container > button:hover {
+  transition: 0.5s;
+  background-color: var(--color-primery-2);
+}
+.main__figure {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.1;
+  animation: logo 10s linear infinite alternate;
+}
+@keyframes logo {
+  0% {
+    transform: scale(0.9);
+  }
+  25% {
+    transform: translateX(25px);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(10px);
+  }
+}
+@media (min-width: 1020px) {
+  .main__figure {
+    opacity: 1;
+    position: relative;
+    display: flex;
+  }
+}
