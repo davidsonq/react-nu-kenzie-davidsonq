@@ -1,15 +1,15 @@
 body {
-  background-color: var(--color-Grey-4);
-  font-family: "Nunito", sans-serif;
   overflow-x: hidden;
 }
-.App {
+.main__home {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
   height: 100vh;
   gap: 15px;
+  background-color: var(--color-Grey-4);
+  font-family: "Nunito", sans-serif;
 }
 .main__container {
   width: 80%;
@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 10.5px;
+  z-index: 2;
 }
 .main__container > h2 {
   font-size: 2.375rem;
@@ -52,7 +53,6 @@ body {
 }
 .main__figure {
   position: absolute;
-  z-index: -1;
   opacity: 0.1;
   animation: logo 10s linear infinite alternate;
 }

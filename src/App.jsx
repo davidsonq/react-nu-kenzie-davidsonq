@@ -16,26 +16,28 @@ const App = () => {
     setPage(true);
   };
   return !page ? (
-    <div className="App">
+    <main className="main__home">
       <HomePage handleHome={handleHome} illustration={illustration} />
-    </div>
+    </main>
   ) : (
-    <div>
+    <div className="container">
       <Header handlePage={handlePage} />
-      <Form
-        listTransactions={listTransactions}
-        setListTransactions={setListTransactions}
-      />
-      <List
-        listTransactions={listTransactions}
-        setListTransactions={setListTransactions}
-      />
-      {!!listTransactions.length && (
-        <TotalMoney
+      <main>
+        <Form
           listTransactions={listTransactions}
           setListTransactions={setListTransactions}
         />
-      )}
+        <List
+          listTransactions={listTransactions}
+          setListTransactions={setListTransactions}
+        />
+        {!!listTransactions.length && (
+          <TotalMoney
+            listTransactions={listTransactions}
+            setListTransactions={setListTransactions}
+          />
+        )}
+      </main>
     </div>
   );
 };
