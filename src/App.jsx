@@ -23,20 +23,24 @@ const App = () => {
     <div className="container">
       <Header handlePage={handlePage} />
       <main>
-        <Form
-          listTransactions={listTransactions}
-          setListTransactions={setListTransactions}
-        />
-        <List
-          listTransactions={listTransactions}
-          setListTransactions={setListTransactions}
-        />
-        {!!listTransactions.length && (
-          <TotalMoney
+        <section>
+          <Form
             listTransactions={listTransactions}
             setListTransactions={setListTransactions}
           />
-        )}
+          {!!listTransactions.length && (
+            <TotalMoney
+              listTransactions={listTransactions}
+              setListTransactions={setListTransactions}
+            />
+          )}
+        </section>
+        <section>
+          <List
+            listTransactions={listTransactions}
+            setListTransactions={setListTransactions}
+          />
+        </section>
       </main>
     </div>
   );
