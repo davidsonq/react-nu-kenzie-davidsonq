@@ -9,6 +9,7 @@ import { HomePage } from "./components/HomePage";
 const App = () => {
   const [listTransactions, setListTransactions] = useState([]);
   const [page, setPage] = useState(false);
+  const [list, setList] = useState(true);
   const handlePage = () => {
     setPage(false);
   };
@@ -22,11 +23,12 @@ const App = () => {
   ) : (
     <div className="container">
       <Header handlePage={handlePage} />
-      <main>
+      <main className="main">
         <section>
           <Form
             listTransactions={listTransactions}
             setListTransactions={setListTransactions}
+            setList={setList}
           />
           {!!listTransactions.length && (
             <TotalMoney
@@ -39,6 +41,8 @@ const App = () => {
           <List
             listTransactions={listTransactions}
             setListTransactions={setListTransactions}
+            setList={setList}
+            list={list}
           />
         </section>
       </main>

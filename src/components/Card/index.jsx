@@ -8,7 +8,7 @@ export const Card = ({ transaction, filterTransactions }) => {
             style: "currency",
             currency: "BRL",
             minimumFractionDigits: 2,
-          }).format(Math.abs(transaction.value))}
+          }).format(Math.abs(transaction.value.replace(",", ".")))}
         </p>
         <button onClick={filterTransactions} id={transaction.id} type="button">
           Lixo

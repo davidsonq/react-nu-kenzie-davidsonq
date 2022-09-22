@@ -9,8 +9,31 @@ export const TotalMoney = ({ listTransactions }) => {
             currency: "BRL",
             minimumFractionDigits: 2,
           }).format(
-            listTransactions.reduce((a, { value }) => a + value, 0) > 0
-              ? listTransactions.reduce((a, { value }) => a + value, 0)
+            listTransactions
+              .filter(({ type }) => type === "entrada")
+              .reduce(
+                (a, { value }) => a + Number(value.replace(",", ".")),
+                0
+              ) -
+              listTransactions
+                .filter(({ type }) => type === "saída")
+                .reduce(
+                  (a, { value }) => a + Number(value.replace(",", ".")),
+                  0
+                ) >
+              0
+              ? listTransactions
+                  .filter(({ type }) => type === "entrada")
+                  .reduce(
+                    (a, { value }) => a + Number(value.replace(",", ".")),
+                    0
+                  ) -
+                  listTransactions
+                    .filter(({ type }) => type === "saída")
+                    .reduce(
+                      (a, { value }) => a + Number(value.replace(",", ".")),
+                      0
+                    )
               : 0
           )}
         </p>

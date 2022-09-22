@@ -1,6 +1,6 @@
 import { useState } from "react";
-
-export const Form = ({ listTransactions, setListTransactions }) => {
+import "./style.css";
+export const Form = ({ listTransactions, setListTransactions, setList }) => {
   const [count, setCount] = useState(listTransactions.length + 2);
   const [useInput, setUseInput] = useState({
     id: listTransactions.length + 1,
@@ -9,58 +9,62 @@ export const Form = ({ listTransactions, setListTransactions }) => {
     value: "",
   });
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
-      <label htmlFor="description">Descrição</label>
+    <form className="main__form" onSubmit={(e) => e.preventDefault()}>
+      <label className="main__label--1" htmlFor="description">
+        Descrição
+      </label>
       <input
-        required
+        className="main__input"
+        value={useInput.description}
         onChange={(e) => {
           setUseInput({ ...useInput, description: e.target.value });
         }}
-        value={useInput.description}
         type="text"
         placeholder="Digite aqui sua descrição"
         id="description"
         name="description"
       />
-      <label htmlFor="description">Ex: Compra de roupas</label>
-      <div>
+      <label className="main__label--2" htmlFor="description">
+        Ex: Compra de roupas
+      </label>
+      <div className="main__container__value">
         <div>
           <label htmlFor="value">Valor</label>
+
           <input
-            required
+            className="main__container__input__value"
+            value={
+              isNaN(Number(useInput.value.replace(",", ".")))
+                ? ""
+                : useInput.value
+            }
             onChange={(e) => {
-              useInput.type === "entrada"
-                ? setUseInput({
-                    ...useInput,
-                    value: Math.abs(Number(e.target.value)),
-                  })
-                : setUseInput({
-                    ...useInput,
-                    value: -1 * Math.abs(Number(e.target.value)),
-                  });
+              setUseInput({
+                ...useInput,
+                value: e.target.value,
+              });
             }}
-            value={useInput.value}
-            type="number"
-            placeholder="0"
+            type="text"
+            placeholder="0,00"
             id="value"
             name="value"
           />
+          <label id="modifire--BRL" htmlFor="value">
+            R$
+          </label>
         </div>
         <div>
           <label htmlFor="type">Tipo de valor</label>
           <select
-            required
             onChange={(e) => {
               e.target.value === "saída"
                 ? setUseInput({
                     ...useInput,
                     type: e.target.value,
-                    value: -1 * useInput.value,
                   })
                 : setUseInput({
                     ...useInput,
                     type: e.target.value,
-                    value: Math.abs(useInput.value),
                   });
             }}
             id="type"
@@ -72,12 +76,21 @@ export const Form = ({ listTransactions, setListTransactions }) => {
         </div>
       </div>
       <button
+        className="main__form__button"
         onClick={() => {
           setCount(count + 1);
           setUseInput({ ...useInput, id: count });
 
           !!useInput.description &&
             setListTransactions([...listTransactions, useInput]);
+          setList(true);
+          console.log(useInput);
+          setUseInput({
+            id: count,
+            description: "",
+            type: useInput.type,
+            value: "",
+          });
         }}
         type="submit"
       >
