@@ -35,10 +35,12 @@
   color: var(--color-Grey-4);
 }
 .list__Text > div > div {
-  display: flex;
   align-items: center;
-  gap: 80px;
+  display: flex;
+  width: 170px;
+  justify-content: space-between;
 }
+
 .list__Text > div > div > p {
   font-size: 0.75rem;
   font-weight: 400;
@@ -54,10 +56,10 @@
   align-items: center;
   justify-content: center;
 }
-.list__Text > div > button > img {
+.list__Text > div > div > button > img {
   transition: 0.5s;
 }
-.list__Text > div > button > img:hover {
+.list__Text > div > div > button > img:hover {
   transition: 0.5s;
   filter: invert();
 }
