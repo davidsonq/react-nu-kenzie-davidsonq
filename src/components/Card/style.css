@@ -34,12 +34,17 @@
   font-weight: 700;
   color: var(--color-Grey-4);
 }
-.list__Text > div > p {
+.list__Text > div > div {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+.list__Text > div > div > p {
   font-size: 0.75rem;
   font-weight: 400;
   color: var(--color-Grey-4);
 }
-.list__Text > div > button {
+.list__Text > div > div > button {
   display: flex;
   border: none;
   cursor: pointer;
