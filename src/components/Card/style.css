@@ -37,8 +37,8 @@
 .list__Text > div > div {
   align-items: center;
   display: flex;
-  width: 170px;
   justify-content: space-between;
+  gap: 80px;
 }
 
 .list__Text > div > div > p {
