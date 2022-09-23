@@ -49,7 +49,7 @@ export const List = ({
           handleExpenses={handleExpenses}
         />
       </div>
-      <ul>
+      <ul className="list__linha">
         <>
           {!listTransactions.length ? (
             <li className="list__NoText">
@@ -71,7 +71,7 @@ export const List = ({
               ) : (
                 <>
                   {!filterAll.length ? (
-                    <li>
+                    <li className="list__NoOption">
                       <h2>Você não tem nenhuma {text}</h2>
                     </li>
                   ) : (

@@ -24,7 +24,7 @@ const App = () => {
     <div className="container">
       <Header handlePage={handlePage} />
       <main className="main">
-        <section>
+        <section className="section__form ">
           <Form
             listTransactions={listTransactions}
             setListTransactions={setListTransactions}
@@ -37,7 +37,7 @@ const App = () => {
             />
           )}
         </section>
-        <section>
+        <section className="section__aside">
           <List
             listTransactions={listTransactions}
             setListTransactions={setListTransactions}

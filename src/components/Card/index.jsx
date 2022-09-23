@@ -1,6 +1,14 @@
+import "./style.css";
+import trash from "../../trash.svg";
 export const Card = ({ transaction, filterTransactions }) => {
   return (
-    <li>
+    <li
+      className={
+        transaction.type === "entrada"
+          ? "list__Text list--modifere-green"
+          : "list__Text list--modifere-normal"
+      }
+    >
       <div>
         <h2>{transaction.description}</h2>
         <p>
@@ -10,8 +18,13 @@ export const Card = ({ transaction, filterTransactions }) => {
             minimumFractionDigits: 2,
           }).format(Math.abs(transaction.value.replace(",", ".")))}
         </p>
-        <button onClick={filterTransactions} id={transaction.id} type="button">
-          Lixo
+        <button type="button">
+          <img
+            onClick={filterTransactions}
+            id={transaction.id}
+            src={trash}
+            alt="Trash"
+          />
         </button>
       </div>
       {transaction.type === "entrada" ? (
