@@ -10,18 +10,14 @@ export const TotalMoney = ({ listTransactions }) => {
             currency: "BRL",
             minimumFractionDigits: 2,
           }).format(
-            listTransactions
-              .filter(({ type }) => type === "entrada")
-              .reduce(
-                (a, { value }) => a + Number(value.replace(",", ".")),
-                0
-              ) -
-              listTransactions
-                .filter(({ type }) => type === "saída")
-                .reduce(
-                  (a, { value }) => a + Number(value.replace(",", ".")),
-                  0
-                )
+            listTransactions.reduce((a, { value, type }) => {
+              return (
+                a +
+                (type === "saída"
+                  ? -Number(value.replace(",", "."))
+                  : Number(value.replace(",", ".")))
+              );
+            }, 0)
           )}
         </p>
       </div>
