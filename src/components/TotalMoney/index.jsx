@@ -21,21 +21,7 @@ export const TotalMoney = ({ listTransactions }) => {
                 .reduce(
                   (a, { value }) => a + Number(value.replace(",", ".")),
                   0
-                ) >
-              0
-              ? listTransactions
-                  .filter(({ type }) => type === "entrada")
-                  .reduce(
-                    (a, { value }) => a + Number(value.replace(",", ".")),
-                    0
-                  ) -
-                  listTransactions
-                    .filter(({ type }) => type === "saída")
-                    .reduce(
-                      (a, { value }) => a + Number(value.replace(",", ".")),
-                      0
-                    )
-              : 0
+                )
           )}
         </p>
       </div>
