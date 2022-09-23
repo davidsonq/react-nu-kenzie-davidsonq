@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Card } from "../Card";
+import "./style.css";
 import { ListFilter } from "../ListFilter";
+import NoCard from "../../NoCard.svg";
 export const List = ({
   listTransactions,
   setListTransactions,
@@ -39,8 +41,8 @@ export const List = ({
   };
 
   return (
-    <div>
-      <div>
+    <aside>
+      <div className="aside__container">
         <ListFilter
           handleAll={handleAll}
           handleAppetizer={handleAppetizer}
@@ -50,8 +52,11 @@ export const List = ({
       <ul>
         <>
           {!listTransactions.length ? (
-            <li>
+            <li className="list__NoText">
               <h2>Você ainda não possui nenhum lançamento</h2>
+              <img src={NoCard} alt="Carregando" />
+              <img src={NoCard} alt="Carregando" />
+              <img src={NoCard} alt="Carregando" />
             </li>
           ) : (
             <>
@@ -84,6 +89,6 @@ export const List = ({
           )}
         </>
       </ul>
-    </div>
+    </aside>
   );
 };

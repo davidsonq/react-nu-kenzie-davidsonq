@@ -1,6 +1,7 @@
+import "./style.css";
 export const TotalMoney = ({ listTransactions }) => {
   return (
-    <div>
+    <div className="aside__total">
       <div>
         <h3>Valor total:</h3>
         <p>

@@ -1,6 +1,6 @@
 export const ListFilter = ({ handleAll, handleAppetizer, handleExpenses }) => {
   return (
-    <div>
+    <>
       <h2>Resumo financeiro</h2>
       <div>
         <button onClick={handleAll} type="button">
@@ -13,6 +13,6 @@ export const ListFilter = ({ handleAll, handleAppetizer, handleExpenses }) => {
           Despesas
         </button>
       </div>
-    </div>
+    </>
   );
 };
